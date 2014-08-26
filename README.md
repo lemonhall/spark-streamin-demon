@@ -5,22 +5,23 @@
 
 2、下载Kafka
 ===========
-参考：http://www.douban.com/note/383894128/
+参考：
+	http://www.douban.com/note/383894128/
 	http://kafka.apache.org/downloads.html
-建议是下载基于2.9.2的scala版本的bin，来玩
-	https://www.apache.org/dyn/closer.cgi?path=/kafka/0.8.1.1/kafka_2.9.2-0.8.1.1.tgz
+
+建议是下载基于2.9.2的scala版本的bin，来玩:
 
 	wget http://mirrors.hust.edu.cn/apache/kafka/0.8.1.1/kafka_2.9.2-0.8.1.1.tgz
 
 3、启动Kafka
 ===========
-启动zk
+启动zk:
 	bin/zookeeper-server-start.sh config/zookeeper.properties
 
-启动kafka本身
+启动kafka本身:
 	bin/kafka-server-start.sh config/server.properties
 
-创建一个topic
+创建一个topic:
 	bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 10 --topic test
 
 
@@ -34,9 +35,7 @@
 	    HighLevelProducer = kafka.HighLevelProducer,
 	    client = new kafka.Client("127.0.0.1:2181"),
 	    producer = new HighLevelProducer(client);
-
 	var m = 0;
-
 	producer.on('ready', function () {
 	    setInterval(function(){
 	        producer.send( [ { topic:'test', messages : "fly me to the moon" } ], function (err, data) {

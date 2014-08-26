@@ -30,12 +30,12 @@
 	https://github.com/SOHU-Co/kafka-node
 	npm install kafka-node
 
-生产者：
+生产者:
+
 	var kafka = require('kafka-node');
 	var HighLevelProducer = kafka.HighLevelProducer;
 	var client = new kafka.Client("127.0.0.1:2181");
 	var producer = new HighLevelProducer(client);
-
 	var m = 0;
 
 	producer.on('ready', function () {

@@ -31,13 +31,13 @@
 	npm install kafka-node
 
 生产者：
-	var kafka = require('kafka-node'),
-	HighLevelProducer = kafka.HighLevelProducer,
-	client = new kafka.Client("127.0.0.1:2181"),
-	producer = new HighLevelProducer(client);
+	var kafka = require('kafka-node');
+	var HighLevelProducer = kafka.HighLevelProducer;
+	var client = new kafka.Client("127.0.0.1:2181");
+	var producer = new HighLevelProducer(client);
 
 	var m = 0;
-	
+
 	producer.on('ready', function () {
 	    setInterval(function(){
 	        producer.send( [ { topic:'test', messages : "fly me to the moon" } ], function (err, data) {
